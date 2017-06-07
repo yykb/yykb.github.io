@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>my blog</title>
+  <title>hexo + github page 搭建的总结 | my blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="my blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="windows系统 hexo + github page 搭建的总结作为一个初次接触git和hexo的菜菜鸟，即使是按照手把手教导教程，依然会碰到各种问题。在将近一个星期的折腾后，终于告一段落了。 在 windows 中安装hexo的前置条件为：  node.js git 客户端  此外，还需要拥有一个 github 账号。">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo + github page 搭建的总结">
+<meta property="og:url" content="http://yoursite.com/2017/06/07/hexo + github page 搭建的总结/index.html">
 <meta property="og:site_name" content="my blog">
+<meta property="og:description" content="windows系统 hexo + github page 搭建的总结作为一个初次接触git和hexo的菜菜鸟，即使是按照手把手教导教程，依然会碰到各种问题。在将近一个星期的折腾后，终于告一段落了。 在 windows 中安装hexo的前置条件为：  node.js git 客户端  此外，还需要拥有一个 github 账号。">
+<meta property="og:updated_time" content="2017-06-07T12:15:23.527Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="my blog">
+<meta name="twitter:title" content="hexo + github page 搭建的总结">
+<meta name="twitter:description" content="windows系统 hexo + github page 搭建的总结作为一个初次接触git和hexo的菜菜鸟，即使是按照手把手教导教程，依然会碰到各种问题。在将近一个星期的折腾后，终于告一段落了。 在 windows 中安装hexo的前置条件为：  node.js git 客户端  此外，还需要拥有一个 github 账号。">
   
     <link rel="alternate" href="/atom.xml" title="my blog" type="application/atom+xml">
   
@@ -59,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="hexo-hexo + github page 搭建的总结" class="article article-type-hexo" itemscope itemprop="blogPost">
+        <section id="main"><article id="hexo-hexo + github page 搭建的总结" class="article article-type-hexo" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/07/hexo + github page 搭建的总结/" class="article-date">
   <time datetime="2017-06-07T12:05:21.000Z" itemprop="datePublished">2017-06-07</time>
@@ -74,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/07/hexo + github page 搭建的总结/">hexo + github page 搭建的总结</a>
+    <h1 class="article-title" itemprop="name">
+      hexo + github page 搭建的总结
     </h1>
   
 
@@ -90,11 +93,27 @@
 <li><a href="https://git-scm.com/" target="_blank" rel="external">git 客户端</a></li>
 </ul>
 <p>此外，还需要拥有一个 <a href="https://github.com/" target="_blank" rel="external">github 账号</a>。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/06/07/hexo + github page 搭建的总结/#more">Read More</a>
-          </p>
-        
+<a id="more"></a>
+<p>在安装好node.js 跟 。git客户端后，在要安装hexo的文件夹上单击右键选择 git bush。在弹出的bush界面中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<p>这里就遇到了第一个坑：在无响应很久以后报错，无法安装。在各种google以后发现是源被墙的过，同时发现了一个很适合像我这种小白使用的工具——nrm。</p>
+<p>nrm 是一个 NPM 源管理器，允许你快速地在如下 NPM 源间切换：</p>
+<ul>
+<li><a href="https://www.npmjs.org" target="_blank" rel="external">npm</a></li>
+<li><a href="http://cnpmjs.org" target="_blank" rel="external">cnpm</a></li>
+<li><a href="http://strongloop.com" target="_blank" rel="external">strongloop</a></li>
+<li><a href="http://npmjs.eu" target="_blank" rel="external">european</a></li>
+<li><a href="https://npmjs.org.au" target="_blank" rel="external">australia</a></li>
+<li><a href="https://www.nodejitsu.com" target="_blank" rel="external">nodejitsu</a></li>
+<li><a href="http://npm.taobao.org" target="_blank" rel="external">taobao</a><br>输入以下代码安装使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install -g nrm</div><div class="line">$ nrm ls //列出可选源</div><div class="line">$ nrm use cnpm //切换至cnpm源</div></pre></td></tr></table></figure>
+<p>使用nrm还有一个好处就是切换源以后还可以继续用 npm 命令进行安装而不需要换成如：cnpm，这样的命令，在后期hexo初始化的时候可以避免很多问题。</p>
+<p>想要详细了解nrm，请到<a href="https://github.com/Pana/nrm" target="_blank" rel="external">https://github.com/Pana/nrm</a>。</p>
+<p>在解决好这个问题之后，就可以对hexo进行初始化了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
+<p>这篇即打算做练习又打算做总结，先写到这里，有空再更。</p>
+
       
     </div>
     <footer class="article-footer">
@@ -106,55 +125,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/29/hello-world/" class="article-date">
-  <time datetime="2017-05-28T16:06:26.364Z" itemprop="datePublished">2017-05-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/29/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2017/05/29/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/29/hello-world/" data-id="cj3myjnhs0000o4c5yzt2gsdn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
