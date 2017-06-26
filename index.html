@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -84,15 +84,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>由于只是单页面应用以及水平所限在引用方式上采用了最简单的 <script> 标签引用，但是在应用上碰到了如下问题：</p>
-<ol>
-<li><p>在代码完成后却发现vue并没有生效，翻看模板发现vue代码是放在window.onload 里的，照猫画虎的尝试了后发现可行，这点文档内没有说而且与视频教程也不同，但是视频教程并没有说明配置环境相关的内容，这点还需后面再确认是什么地方出现的问题。</p>
-</li>
-<li><p>在模仿官网双向绑定的例子的时候发现虽然双向绑定可以实现，但是在控制台里却修改不了data内的数据，查看data内的数据返回 undefind，思考许久后发现应该是作用域的问题，例子以及视频里都是直接在页面内写js语句绑定dom，而我这里是：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">    </div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>把新建的Vue实例放到了function内部，把 var 去掉后app变成全局变量后在控制台里可以修改data内的数据。</p>
-</li>
-</ol>
-</script></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/06/26/初次体验-Vue-小记/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -277,7 +273,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
@@ -287,7 +283,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
         
