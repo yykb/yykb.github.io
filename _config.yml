@@ -12,11 +12,13 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://yoursite.co。30m
 root: /
-permalink: :year/:month/:day/:title/
-permalink_defaults:
+permalink: :year/:month/:day/:title/4
 
+
+permalink_defaults:                                                  
+d
 # Directory
 source_dir: source
 public_dir: public
