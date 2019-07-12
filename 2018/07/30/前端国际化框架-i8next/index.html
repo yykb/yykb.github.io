@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="先占个坑，熟悉一下流程以及图床操作">
+  <meta name="description" content="最近项目要求增加对多语言的支持，在几经比对之后，选择了 i18next 作为前端国际化框架，他有如下有点：  不仅支持jQuery，还支持其他 如：react vue 等多种主流框架/库。 支持多种形式的文本替换，可以尽量减少对页面架构的调整。 更新时间较新，并且有文档可以查询。    i18next  是一个运行在浏览器或其它JavaScript环境下的国际化框架，并且有数量众多的插件，下面只">
 <meta name="keywords" content="JavaScript i18n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端国际化框架 -- i8next">
 <meta property="og:url" content="http://yoursite.com/2018/07/30/前端国际化框架-i8next/index.html">
 <meta property="og:site_name" content="my blog">
-<meta property="og:description" content="先占个坑，熟悉一下流程以及图床操作">
+<meta property="og:description" content="最近项目要求增加对多语言的支持，在几经比对之后，选择了 i18next 作为前端国际化框架，他有如下有点：  不仅支持jQuery，还支持其他 如：react vue 等多种主流框架/库。 支持多种形式的文本替换，可以尽量减少对页面架构的调整。 更新时间较新，并且有文档可以查询。    i18next  是一个运行在浏览器或其它JavaScript环境下的国际化框架，并且有数量众多的插件，下面只">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-05T16:13:26.710Z">
+<meta property="og:updated_time" content="2019-07-12T14:45:58.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端国际化框架 -- i8next">
-<meta name="twitter:description" content="先占个坑，熟悉一下流程以及图床操作">
+<meta name="twitter:description" content="最近项目要求增加对多语言的支持，在几经比对之后，选择了 i18next 作为前端国际化框架，他有如下有点：  不仅支持jQuery，还支持其他 如：react vue 等多种主流框架/库。 支持多种形式的文本替换，可以尽量减少对页面架构的调整。 更新时间较新，并且有文档可以查询。    i18next  是一个运行在浏览器或其它JavaScript环境下的国际化框架，并且有数量众多的插件，下面只">
 
 
 
@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-06 00:13:26" itemprop="dateModified" datetime="2019-02-06T00:13:26+08:00">2019-02-06</time>
+                <time title="修改时间：2019-07-12 22:45:58" itemprop="dateModified" datetime="2019-07-12T22:45:58+08:00">2019-07-12</time>
               
             
           </span>
@@ -395,9 +395,29 @@
 
       
         <blockquote>
-<p>先占个坑，熟悉一下流程以及图床操作</p>
+<p>最近项目要求增加对多语言的支持，在几经比对之后，选择了 i18next 作为前端国际化框架，他有如下有点：</p>
+<ol>
+<li>不仅支持jQuery，还支持其他 如：react vue 等多种主流框架/库。</li>
+<li>支持多种形式的文本替换，可以尽量减少对页面架构的调整。</li>
+<li>更新时间较新，并且有文档可以查询。</li>
+</ol>
 </blockquote>
+<p> <a href="https://github.com/i18next/i18next" target="_blank" rel="noopener">i18next</a>  是一个运行在浏览器或其它JavaScript环境下的国际化框架，并且有数量众多的插件，下面只在项目中用到的做一些简单的介绍。具体内容请查阅文档：<a href="https://www.i18next.com/overview/introduction" target="_blank" rel="noopener">https://www.i18next.com/overview/introduction</a></p>
 <a id="more"></a>
+<h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h4><p>在引入 i18next.js 和 jquery-i18next.js 之后，需要首先执行初始化操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i18next.init(options, callback)</span><br></pre></td></tr></table></figure>
+<p>根据官方文档可以带参数跟回调初始化，或者只带回调</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">i18next.init(&#123;</span><br><span class="line">  fallbackLng: <span class="string">'en'</span>,</span><br><span class="line">  ns: [<span class="string">'file1'</span>, <span class="string">'file2'</span>],</span><br><span class="line">  defaultNS: <span class="string">'file1'</span>,</span><br><span class="line">  debug: <span class="literal">true</span></span><br><span class="line">&#125;, (err, t) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'something went wrong loading'</span>, err);</span><br><span class="line">  t(<span class="string">'key'</span>); <span class="comment">// -&gt; same as i18next.t</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// with only callback</span></span><br><span class="line">i18next.init(<span class="function">(<span class="params">err, t</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'something went wrong loading'</span>, err);</span><br><span class="line">  t(<span class="string">'key'</span>); <span class="comment">// -&gt; same as i18next.t</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以设置的参数包括：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">i18next.init(&#123;</span><br><span class="line">    lng: <span class="string">'zh-CN'</span>, <span class="comment">//当前使用语言</span></span><br><span class="line">    fallbackLng: [<span class="string">'zh-CN'</span>], <span class="comment">//设置语言不存在时的回退语言，默认为：'dev'</span></span><br><span class="line">    preload: [<span class="string">'zh-CN'</span>,<span class="string">'en'</span>], <span class="comment">//预加载的语言，默认为：false</span></span><br><span class="line">    whitelist: [<span class="string">'zh-CN'</span>,<span class="string">'en'</span>], <span class="comment">//只允许加载的语言，默认为：false</span></span><br><span class="line">    ns: [<span class="string">'cashier'</span>], <span class="comment">//命名空间，默认为：'translation'</span></span><br><span class="line">    defaultNS: <span class="string">'cashier'</span>, <span class="comment">//默认命名空间，默认为：'translation'</span></span><br><span class="line">    debug: <span class="literal">true</span>, <span class="comment">//调试开关，默认为：false</span></span><br><span class="line">    resources: &#123; <span class="comment">// 语言资源</span></span><br><span class="line">        <span class="string">'zh-CN'</span>:&#123;</span><br><span class="line">            cashier: &#123;</span><br><span class="line">              common: &#123;</span><br><span class="line">                confirm: <span class="string">"确定"</span>,</span><br><span class="line">                cancel: <span class="string">"取消"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        en:&#123;</span><br><span class="line">            cashier: &#123;</span><br><span class="line">              common: &#123;</span><br><span class="line">                confirm: <span class="string">"confirm"</span>,</span><br><span class="line">                cancel: <span class="string">"cancel"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">  	&#125;,</span><br><span class="line">  &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, t</span>) </span>&#123;</span><br><span class="line">    jqueryI18next.init(i18next, $); <span class="comment">//jQuery-i18next 初始化，一般不需要特殊设置</span></span><br><span class="line">    $(<span class="string">'body'</span>).localize(); <span class="comment">//执行翻译操作</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>一般来说我们更倾向于吧语言资源文件放到外部文件更方便管理，i18next也有这方面的考虑，需要首先引入 i18nextXHRBackend.js ，在初始化时需要加上 .use(window.i18nextXHRBackend)，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i18next.use(<span class="built_in">window</span>.i18nextXHRBackend).init(&#123;</span><br><span class="line">    <span class="comment">// 其他参数</span></span><br><span class="line">    backend: &#123; <span class="comment">//与 resources 二选一，如果同时存在则执行 resources 中的内容</span></span><br><span class="line">      loadPath: <span class="string">'/lang/&#123;&#123;lng&#125;&#125;/&#123;&#123;ns&#125;&#125;.json'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, t</span>) </span>&#123;&#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>网上所说的 resGetPath 参数这种方法在新版本中已经废弃了（大概1.8以后吧），新版本只能通过这种方式，语言文件格式为 .json，而且应该不是只能用固定的两种模式，上面双括号中的 lng 与 ns 是自己参数中设置的 lng 与 ns，应该可以放置在路径的任何地方。</p>
+<h4 id="2-在页面中的使用"><a href="#2-在页面中的使用" class="headerlink" title="2. 在页面中的使用"></a>2. 在页面中的使用</h4><p>在需要翻译的节点使用 data-i18n 属性即可，其中 i18n 可以在 jQuery-i18next 初始化时自行设置为其它文字，具体<a href="https://github.com/i18next/jquery-i18next#initialize-the-plugin" target="_blank" rel="noopener">参阅文档</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-i18n</span>=<span class="string">"common.confirm"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-i18n</span>=<span class="string">"common.concel"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p>此外还可以追加文本，设置属性等</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-i18n</span>=<span class="string">"[title]common.confirm"</span>&gt;</span>确认按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-i18n</span>=<span class="string">"[prepend]common.concel"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-i18n</span>=<span class="string">"[append]common.concel"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -444,6 +464,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/05/19/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -487,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -553,6 +586,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-初始化"><span class="nav-number">1.</span> <span class="nav-text">1. 初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在页面中的使用"><span class="nav-number">2.</span> <span class="nav-text">2. 在页面中的使用</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
